@@ -1,6 +1,6 @@
-# Spotify Discord Bot
+# Spotify Discord webhook
 
-This Python script allows you to create a Discord bot that sends updates about the currently playing track on Spotify to a specified Discord channel.
+This Python script allows you to create a Discord webhook that sends updates about the currently playing track on Spotify to a specified Discord channel.
 
 ## Setup
 1. Install the required libraries by running:
