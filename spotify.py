@@ -1,21 +1,16 @@
 import spotipy
-from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyClientCredentials
 import aiohttp
 import asyncio
 
-CLIENT_ID = '' #add your client id here
-CLIENT_SECRET = '' #add your client secret here
-REDIRECT_URI = '' #add your redirect uri here
-SCOPE = 'user-read-currently-playing'
+CLIENT_ID = ''
+CLIENT_SECRET = ''
 WEBHOOK_URL = ''  # Add your Discord webhook URL here
 
 
 def get_currently_playing():
-    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
-                                                   client_secret=CLIENT_SECRET,
-                                                   redirect_uri=REDIRECT_URI,
-                                                   scope=SCOPE,
-                                                   open_browser=False))
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=CLIENT_ID,
+                                                               client_secret=CLIENT_SECRET))
     current_track = sp.currently_playing()
     if current_track is not None and current_track['is_playing']:
         track = current_track['item']
@@ -49,7 +44,7 @@ async def main():
         if song and song != last_song:
             await send_to_discord(song, song_url)
             last_song = song
-        await asyncio.sleep(30)
+        await asyncio.sleep(10)
 
 if __name__ == "__main__":
     asyncio.run(main())
