@@ -1,4 +1,4 @@
-# Spotify Discord webhook
+# Spotify Discord Webhook
 
 This Python script allows you to create a Discord webhook that sends updates about the currently playing track on Spotify to a specified Discord channel.
 
@@ -7,14 +7,12 @@ This Python script allows you to create a Discord webhook that sends updates abo
    ```
    pip install spotipy aiohttp
    ```
-2. Obtain the following credentials:
-3. https://developer.spotify.com/
+2. Obtain the following credentials from [Spotify Developer](https://developer.spotify.com/):
    - `CLIENT_ID`: Your Spotify client ID
    - `CLIENT_SECRET`: Your Spotify client secret
-   - `REDIRECT_URI`: Your Spotify redirect URI
    - `WEBHOOK_URL`: Your Discord webhook URL
 
-4. Update the script with your credentials in the designated placeholders.
+3. Update the script with your credentials in the designated placeholders.
 
 ## Usage
 1. Run the script using:
@@ -26,6 +24,6 @@ This Python script allows you to create a Discord webhook that sends updates abo
 
 ## Note
 - Make sure to set up the Discord webhook URL correctly to receive messages.
-- The script runs an infinite loop checking every 30 seconds for updates.
+- The script runs an infinite loop checking every 10 seconds for updates.
 
 Feel free to customize the script further based on your requirements!
